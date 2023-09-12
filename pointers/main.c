@@ -4,6 +4,7 @@
 // int*
 
 // todo ponteiro ocupa 8bytes!!!
+// segmentation fault -> acesso de uma regiao que nao existe na mem
 
 int main(){
     int a = 10;
