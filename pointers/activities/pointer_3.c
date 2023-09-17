@@ -6,8 +6,8 @@ int main(){
     int v[5];
     int i = 0;
 
-    for (i; i <= 5; i++) {
-        v[i] = rand() % 10 + 1;
+    for (i; i < 5; i++) {
+        scanf("%d", &v[i]);
     };
 
     // Definir ponteiro para o vetor
@@ -20,15 +20,16 @@ int main(){
     // &v[4] = 2016
     // &v[5] = 2020
 
-    // Por meio do ponteiro, imprima todas as posicoes na tela
+    // imprima todas as posicoes na tela
     int j = 0;
-    for (j; j <= 5; j++){
+    for (j; j < 5; j++){
         printf("Posicao de n%d: %d\n", j, v[j]);
     };
     printf("----------");
 
     j = 0;
-    for (j; j <= 5; j++){
+    // Por meio do ponteiro -
+    for (j; j < 5; j++){
         printf("Posicao de n%d: %d\n", j, pv[j]);
     };
 
