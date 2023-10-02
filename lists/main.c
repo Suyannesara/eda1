@@ -51,6 +51,18 @@ int show(int *v, int size){
     }
 }
 
+
+// #REMOCAO 1
+int removeItem(int k, int length, int v[]){
+    int x = v[k]; // k == i
+
+    for(int j = k+1; j < length; ++j){
+        v[j-1] = v[j];
+    };
+
+    return x;
+}
+
 int main(){
     int size = 10;
     int v[size];
@@ -60,7 +72,12 @@ int main(){
 
     // int res_busca = busca(v, 9, size);
     int res_busca = buscaR2(v, 7, size);
-    printf("Busca: %d\n", res_busca);
+    // printf("Busca: %d\n", res_busca);
+
+    removeItem(5, size, v);
+    printf(" ------------- Depois ----------------\n");
+    size-=1;
+    show(v, size);
 
     return 0;
 }
