@@ -18,7 +18,7 @@ struct float_vector {
  * @return
 */
 
-FloatVector *create(int capacity){
+FloatVector *createFloatVector(int capacity){
     // alocar um espaco para uma variavel do tipo float vector
 
     // criar a caixinha que representa o struct definido
@@ -32,7 +32,7 @@ FloatVector *create(int capacity){
     return vec;
 }
 
-void destroy(FloatVector **vec_ref){
+void destroyFloatVector(FloatVector **vec_ref){
     // desalocar free(POINTER)
     // vec_ref = pointer para vec pointer na stack
     // vec_ref -> vec (pointer na heap)
@@ -44,7 +44,7 @@ void destroy(FloatVector **vec_ref){
     *vec_ref = NULL;
 }
 
-void append(FloatVector *vec, float val){
+void appendFloatVector(FloatVector *vec, float val){
     if(vec->size == vec->capacity){
         fprintf(stderr, "ERROR in 'append'\nVector is full\n");
         exit(EXIT_FAILURE);
@@ -54,7 +54,7 @@ void append(FloatVector *vec, float val){
     vec->size++;
 }
 
-void print(const FloatVector *vec){
+void printFloatVector(const FloatVector *vec){
     puts("-----------------------------");
     printf("Size: %d\n", vec->size);
     printf("Capacity: %d\n", vec->capacity);
@@ -66,19 +66,19 @@ void print(const FloatVector *vec){
     puts("\n------------------------------\n");
 }
 
-int size(const FloatVector *vec){
+int sizeFloatVector(const FloatVector *vec){
     return vec->size;
 }
 
-int capacity(const FloatVector *vec){
+int capacityFloatVector(const FloatVector *vec){
     return vec->capacity;
 }
 
-float get(const FloatVector *vec, int index){
+float getFloatVector(const FloatVector *vec, int index){
     return vec->data[index];
 }
 
-float at(const FloatVector *vec, int index){
+float atFloatVector(const FloatVector *vec, int index){
     // checks if index is valid
     if(index >= vec->size || index < 0){
         fprintf(stderr, "ERROR in 'at'\nIndex [%d] is out of bounds: [0, %d]\n", index, vec->size);
@@ -87,7 +87,7 @@ float at(const FloatVector *vec, int index){
     return vec->data[index];
 }
 
-void set(FloatVector *vec, int index, float val){
+void setFloatVector(FloatVector *vec, int index, float val){
     if(index >= vec->size || index < 0){
         fprintf(stderr,"ERROR in 'set'\nProvided index is not valid\n");
         exit(EXIT_FAILURE);

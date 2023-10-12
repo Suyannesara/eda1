@@ -3,11 +3,11 @@
 
 typedef struct float_vector FloatVector;
 
-FloatVector *create(int capacity);
-void destroy(FloatVector **vec_ref);
-int size(const FloatVector *vec);
-int capacity(const FloatVector *vec);
-float get(const FloatVector *vec, int index);
-void print(const FloatVector *vec);
-void append(FloatVector *vec, float val);
-void set(FloatVector *vec, int index, float val);
+FloatVector *createFloatVector(int capacity);
+void destroyFloatVector(FloatVector **vec_ref);
+int sizeFloatVector(const FloatVector *vec);
+int capacityFloatVector(const FloatVector *vec);
+float getFloatVector(const FloatVector *vec, int index);
+void printFloatVector(const FloatVector *vec);
+void appendFloatVector(FloatVector *vec, float val);
+void setFloatVector(FloatVector *vec, int index, float val);

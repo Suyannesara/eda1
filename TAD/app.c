@@ -3,20 +3,20 @@
 // cosider the float_vector.o for this compilation = gcc app.c float_vector.o -o app
 
 int main(){
-    FloatVector *vec = create(5);
-    print(vec);
+    FloatVector *vec = createFloatVector(5);
+    printFloatVector(vec);
 
-    append(vec, 0.0);
-    append(vec, 1.5);
-    append(vec, 2.2);
-    print(vec);
+    appendFloatVector(vec, 0.0);
+    appendFloatVector(vec, 1.5);
+    appendFloatVector(vec, 2.2);
+    printFloatVector(vec);
 
-    printf("GET [%d] : %.1f\n", 1, get(vec, 1));
+    printf("GET [%d] : %.1f\n", 1, getFloatVector(vec, 1));
     
-    set(vec, 1, 5.4);
-    print(vec);
+    setFloatVector(vec, 1, 5.4);
+    printFloatVector(vec);
 
-    destroy(&vec);
+    destroyFloatVector(&vec);
 
     return 0;
 }
