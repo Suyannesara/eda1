@@ -78,28 +78,37 @@ float get(const FloatVector *vec, int index){
     return vec->data[index];
 }
 
+float at(const FloatVector *vec, int index){
+    // checks if index is valid
+    if(index >= vec->size || index < 0){
+        fprintf(stderr, "ERROR in 'at'\nIndex [%d] is out of bounds: [0, %d]\n", index, vec->size);
+        exit(EXIT_FAILURE);
+    }
+    return vec->data[index];
+}
+
 void set(FloatVector *vec, int index, float val){
-    if(index >= vec->capacity || index < 0){
-        printf("ERROR in 'set'\nProvided index is not valid\n");
+    if(index >= vec->size || index < 0){
+        fprintf(stderr,"ERROR in 'set'\nProvided index is not valid\n");
         exit(EXIT_FAILURE);
     }
 
-    if(vec->data[index]){
-        char confirmation;
+    // if(vec->data[index]){
+    //     char confirmation;
 
-        printf("WARN in 'set'\nValue '%.1f' is already assigned to index: %d\n", vec->data[index], index);
-        puts("If you desire to keep going with your action, write 'S'");
-        scanf("%c", &confirmation);
+    //     fprintf(stderr,"WARN in 'set'\nValue '%.1f' is already assigned to index: %d\n", vec->data[index], index);
+    //     puts("If you desire to keep going with your action, write 'S'");
+    //     scanf("%c", &confirmation);
 
-        switch (confirmation) {
-            case 'S':
-                vec->data[index] = val;
-                break;
-            default:
-                exit(EXIT_SUCCESS);
-                break;
-        }
-    }
+    //     switch (confirmation) {
+    //         case 'S':
+    //             vec->data[index] = val;
+    //             break;
+    //         default:
+    //             exit(EXIT_SUCCESS);
+    //             break;
+    //     }
+    // }
 
     vec->data[index] = val;
 }
