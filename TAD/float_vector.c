@@ -41,11 +41,3 @@ void destroy(FloatVector **vec_ref){
 
     *vec_ref = NULL;
 }
-
-int main(){
-    create(5);
-    return 0;
-}
-
-
-
