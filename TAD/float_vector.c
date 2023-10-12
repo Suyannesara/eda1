@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// compile this file using  = gcc -c TAD/float_vector.c -> float_vector.o
+
 struct float_vector {
     int capacity; // num maximo de elementos
     int size; // qtd atual de elementos aramazenados
@@ -41,3 +43,26 @@ void destroy(FloatVector **vec_ref){
 
     *vec_ref = NULL;
 }
+
+void append(FloatVector *vec, float val){
+    if(vec->size == vec->capacity){
+        fprintf(stderr, "ERROR in 'append'\nVector is full\n");
+        exit(EXIT_FAILURE);
+    }
+
+    vec->data[vec->size] = val;
+    vec->size++;
+}
+
+void print(FloatVector *vec){
+    puts("-----------------------------");
+    printf("Size: %d\n", vec->size);
+    printf("Capacity: %d\n", vec->capacity);
+    puts("---");
+
+    for(int i = 0; i < vec->capacity; i++){
+        printf("%.1f  ", vec->data[i]);
+    }
+    puts("\n------------------------------\n");
+}
+
