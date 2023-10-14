@@ -37,13 +37,13 @@ SNode *SNode_create(int val){
 // insercao do nó na cabeça
 void LinkedList_add_first(LinkedList *L, int val){
     SNode *node = SNode_create(val);
-    // Caso lista vazia - node->prox = NULL
-    node->prox = L->begin; 
-    L->begin = node;
-    
     if(LinkedList_is_empty(L)){
         L->end = node;
     }
+
+    // Caso lista vazia - node->prox = NULL
+    node->prox = L->begin; 
+    L->begin = node;
 }
 
 void LinkedList_print(const LinkedList *L){
