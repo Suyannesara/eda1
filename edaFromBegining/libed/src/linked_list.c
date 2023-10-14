@@ -12,6 +12,10 @@ struct _linked_list {
     SNode *end;
 };
 
+bool LinkedList_is_empty(const LinkedList *L){
+    return L->begin == NULL;
+}
+
 // Caso 1 - Lista Vazia
 LinkedList *LinkedList_create(){
     LinkedList *L = (LinkedList*)calloc(1, sizeof(LinkedList));
@@ -35,10 +39,9 @@ void LinkedList_add_first(LinkedList *L, int val){
     SNode *node = SNode_create(val);
     // Caso lista vazia - node->prox = NULL
     node->prox = L->begin; 
-
     L->begin = node;
-
-    if(L->end == NULL){
+    
+    if(LinkedList_is_empty(L)){
         L->end = node;
     }
 }
@@ -58,7 +61,7 @@ void LinkedList_add_last_slow(LinkedList *L, int val){
     SNode *novo_no = SNode_create(val);
 
     // se vazia
-    if(L->begin == NULL){
+    if(LinkedList_is_empty(L)){
         L->begin = novo_no;
         L->end = novo_no;
     }else{
@@ -76,7 +79,7 @@ void LinkedList_add_last(LinkedList *L, int val){
     SNode *novo_no = SNode_create(val);
     
     // se vazia
-    if(L->begin == NULL){
+    if(LinkedList_is_empty(L)){
         L->begin = novo_no;
         L->end = novo_no;
     }else{
