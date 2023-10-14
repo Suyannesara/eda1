@@ -36,3 +36,35 @@ void LinkedList_add_first(LinkedList *L, int val){
 
     L->begin = node;
 }
+
+void LinkedList_print(const LinkedList *L){
+    SNode *atual = L->begin;
+
+    while(atual != NULL){
+        printf("%d -> ", atual->val);
+        atual = atual->prox;
+    }
+    printf("NULL\n");
+}
+
+void LinkedList_add_end(LinkedList *L, int val){
+    // cria o no
+    SNode *novo_no = SNode_create(val);
+
+    // se vazia
+    if(L->begin == NULL){
+        L->begin = novo_no;
+    }else{
+        SNode *atual = L->begin;
+        // percorre a lista para achar o ultimo
+        while(atual->prox != NULL){
+            atual = atual->prox;
+        }
+        
+        atual->prox = novo_no;
+    }
+}
+
+
+
+
