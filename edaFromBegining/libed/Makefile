@@ -20,7 +20,7 @@ libed: \
 
 
 myapps: clean_apps \
-	$(BIN)/test_float_vector
+	$(BIN)/test_linked_list
 
 $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
 	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@
@@ -29,7 +29,7 @@ $(BIN)/%: $(APPS)/%.c
 	gcc $(FLAGS) $< $(LIBS) -I $(INCLUDE) -o $@
 
 run:
-	$(BIN)/test_float_vector
+	$(BIN)/test_linked_list
 
 clean:
 	rm -rf $(BIN)/* $(LIB)/* $(OBJ)/*

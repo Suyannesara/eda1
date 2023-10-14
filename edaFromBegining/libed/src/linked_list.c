@@ -47,7 +47,7 @@ void LinkedList_print(const LinkedList *L){
     printf("NULL\n");
 }
 
-void LinkedList_add_end(LinkedList *L, int val){
+void LinkedList_add_last(LinkedList *L, int val){
     // cria o no
     SNode *novo_no = SNode_create(val);
 
