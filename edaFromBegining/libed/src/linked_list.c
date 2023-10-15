@@ -89,8 +89,63 @@ void LinkedList_add_last(LinkedList *L, int val){
     }
 }
 
+void LinkedList_remove_from_head(LinkedList *L){
+    if(!LinkedList_is_empty(L)){
+        SNode *novo_begin = L->begin->prox;
+
+        free(L->begin);
+
+        // atualizo o valor do begin
+        L->begin = novo_begin;
+    }
+}
+
+void LinkedList_remove(LinkedList *L, int val){
+    SNode *atual = L->begin;
+
+    while(atual != NULL){
+        // elemento seguinte a este, tem o valor que eu quero
+        SNode *next = atual->prox;
+
+        // caso o elemento procurado for o L->begin - primeiro da lista
+        if(L->begin->val == val){
+            // atual == L->begin
+            SNode *pos = L->begin;
+            // atualizo o valor do begin
+            L->begin = pos->prox;
+
+            // se um unico elemento na lista
+            if(L->end == pos){
+                L->end = NULL;
+            }
+
+            free(pos);
+            return;
+        }
+
+        if(next->val == val){
+            atual->prox = next->prox;
+            free(next);
+
+
+            // se o elemento que eu tirar for o ultimo da lista
+            if(atual->prox == NULL){
+                L->end = atual;
+            }
+            return;
+        }
+
+        atual = atual->prox;
+    }
+}
+
 
 void LinkedList_end(LinkedList *L){
+    if(LinkedList_is_empty(L)){
+        printf("Ultimo: %p \n", NULL);
+        printf("PRIMEIRO: %p \n", NULL);
+        return;
+    }
     printf("Ultimo: %d \n", L->end->val);
     printf("PRIMEIRO: %d \n", L->begin->val);
 }
