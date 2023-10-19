@@ -107,14 +107,14 @@ void LinkedList_remove(LinkedList *L, int val){
         // elemento seguinte a este, tem o valor que eu quero
         SNode *next = atual->prox;
 
-        // caso o elemento procurado for o L->begin - primeiro da lista
+        // #CASO 1: PRIMEIRO DA LISTA
         if(L->begin->val == val){
             // atual == L->begin
             SNode *pos = L->begin;
             // atualizo o valor do begin
             L->begin = pos->prox;
 
-            // se um unico elemento na lista
+            // #CASO 1.1: UNICO DA LISTA
             if(L->end == pos){
                 L->end = NULL;
             }
@@ -123,12 +123,13 @@ void LinkedList_remove(LinkedList *L, int val){
             return;
         }
 
+        // #CASO 2: ELEMENTO NO MEIO DA LISTA
         if(next->val == val){
             atual->prox = next->prox;
             free(next);
 
 
-            // se o elemento que eu tirar for o ultimo da lista
+            // #CASO 2.3: ULTIMO DA LISTA
             if(atual->prox == NULL){
                 L->end = atual;
             }
